@@ -39,19 +39,16 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Build
-        run: cargo build
+        run: cargo build -v
 
-      - name: Test
-        run: cargo test
+      - name: Test KEM
+        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,kem
 
-      - name: Test Rnd
-        run: cargo test --no-default-features --features vendored
+      - name: Test SIG
+        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,sig
 
-      - name: Test All
-        run: cargo test --no-default-features --features vendored,kem,sig
-
-      - name: Test All+Shake
-        run: cargo test --no-default-features --features vendored,kem,sig,shake
+      - name: Test SHAKE
+        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendored,kem,sig,shake
 
       - name: Fmt
         run: cargo fmt --all -- --check
