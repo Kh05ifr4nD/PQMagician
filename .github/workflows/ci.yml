@@ -1,0 +1,60 @@
+on: [push, pull_request]
+
+name: Continuous Integration
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        rust:
+          - stable
+        upd-pqmagic:
+          - true
+          - false
+    env:
+      CARGO_TERM_COLOR: always
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: PQMagic Submod Upd
+        if: matrix.upd-pqmagic
+        run: git submodule update --remote
+
+      - name: Rust
+        run: |
+          rustup set auto-self-update disable
+          rustup toolchain install ${{ matrix.rust }} --profile minimal --component rustfmt --component clippy
+          rustup default ${{ matrix.rust }}
+          echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
+          echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
+          echo RUST_BACKTRACE=1 >> $GITHUB_ENV
+        shell: bash
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build
+        run: cargo build
+
+      - name: Test
+        run: cargo test
+
+      - name: Test Rnd
+        run: cargo test --no-default-features --features vendored
+
+      - name: Test All
+        run: cargo test --no-default-features --features vendored,kem,sig
+
+      - name: Test All+Shake
+        run: cargo test --no-default-features --features vendored,kem,sig,shake
+
+      - name: Fmt
+        run: cargo fmt --all -- --check
+
+      - name: Clippy
+        run: cargo clippy
