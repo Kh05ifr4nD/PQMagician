@@ -48,7 +48,7 @@ jobs:
         run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,sig
 
       - name: Test SHAKE
-        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendored,kem,sig,shake
+        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,kem,sig,shake
 
       - name: Fmt
         run: cargo fmt --all -- --check
