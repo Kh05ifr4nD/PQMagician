@@ -1866,13 +1866,13 @@ pub mod sig {
 
 #[cfg(test)]
 mod tests {
-  use super::randombytes;
   #[cfg(feature = "aigis_enc")]
   use super::kem::aigis_enc::*;
   #[cfg(feature = "kyber")]
   use super::kem::kyber::*;
   #[cfg(feature = "ml_kem")]
   use super::kem::ml_kem::*;
+  use super::randombytes;
   #[cfg(feature = "aigis_sig")]
   use super::sig::aigis_sig::*;
   #[cfg(feature = "dilithium")]
