@@ -1,0 +1,4 @@
+[workspace]
+default-members = ["pqmagic", "pqmagic-sys"]
+members = ["pqmagic", "pqmagic-sys", "ws-hakari"]
+resolver = "2"
