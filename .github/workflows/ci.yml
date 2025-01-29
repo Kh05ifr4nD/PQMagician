@@ -9,6 +9,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-latest-arm
         rust:
           - stable
         upd-pqmagic:
