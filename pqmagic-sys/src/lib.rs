@@ -1866,9 +1866,23 @@ pub mod sig {
 
 #[cfg(test)]
 mod tests {
-  use super::kem::{aigis_enc::*, kyber::*, ml_kem::*};
   use super::randombytes;
-  use super::sig::{aigis_sig::*, dilithium::*, ml_dsa::*, slh_dsa::*, sphincs_a::*};
+  #[cfg(feature = "aigis_enc")]
+  use super::kem::aigis_enc::*;
+  #[cfg(feature = "kyber")]
+  use super::kem::kyber::*;
+  #[cfg(feature = "ml_kem")]
+  use super::kem::ml_kem::*;
+  #[cfg(feature = "aigis_sig")]
+  use super::sig::aigis_sig::*;
+  #[cfg(feature = "dilithium")]
+  use super::sig::dilithium::*;
+  #[cfg(feature = "ml_dsa")]
+  use super::sig::ml_dsa::*;
+  #[cfg(feature = "slh_dsa")]
+  use super::sig::slh_dsa::*;
+  #[cfg(feature = "sphincs_a")]
+  use super::sig::sphincs_a::*;
   #[test]
   fn test_randombytes() {
     let mut out = [0u8; 32];

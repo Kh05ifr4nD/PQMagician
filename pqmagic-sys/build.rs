@@ -32,7 +32,7 @@ macro_rules! feat_alg_gen {
     pub const ALG_ARR_DIS: [&str; alg_cnt_dis!($($lit)*)] = [
       $(
         #[cfg(not(feature = $lit))]
-        concat!("ENABLE_", convert_ascii_case!(upper, $lit)),
+        const_str::concat!("ENABLE_", const_str::convert_ascii_case!(upper, $lit)),
       )*
     ];
   };
@@ -52,6 +52,17 @@ feat_alg_gen!(
 );
 
 fn build_from_source() -> std::path::PathBuf {
+  #[cfg(all(
+    not(feature = "aigis_enc"),
+    not(feature = "kyber"),
+    not(feature = "ml_kem"),
+    not(feature = "aigis_sig"),
+    not(feature = "dilithium"),
+    not(feature = "ml_dsa"),
+    not(feature = "slh_dsa"),
+    not(feature = "sphincs_a")
+  ))]
+  compile_error!("Please enable at least one algorithm feature.");
   let mut cfg = cmake::Config::new("PQMagic");
   #[cfg(feature = "adv")]
   compile_error!(
@@ -69,6 +80,7 @@ fn build_from_source() -> std::path::PathBuf {
 fn main() {
   let build_dir = build_from_source();
   println!("cargo:rustc-link-search=native={}", build_dir.display());
+  println!("cargo:rustc-link-lib=static=pqmagic_std");
   println!("cargo:rustc-link-search=native={}", build_dir.join("utils").display());
   println!("cargo:rustc-link-lib=static=randombytes");
   if cfg!(feature = "shake") {
@@ -78,5 +90,4 @@ fn main() {
     println!("cargo:rustc-link-search=native={}", build_dir.join("hash").join("sm3").display());
     println!("cargo:rustc-link-lib=static=sm3");
   }
-  println!("cargo:rustc-link-lib=static=pqmagic_std");
 }
