@@ -11,7 +11,6 @@ include = [
     "build.rs",
     "PQMagic/CMakeLists.txt",
     "PQMagic/hash",
-    "PQMagic/include",
     "PQMagic/kem",
     "PQMagic/LICENSE",
     "PQMagic/sig",
