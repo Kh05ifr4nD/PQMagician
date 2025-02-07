@@ -1,6 +1,6 @@
 #![no_std]
 
-unsafe extern "C" {
+extern "C" {
   pub fn randombytes(out: *mut u8, out_len: usize);
 }
 
@@ -10,6 +10,7 @@ pub mod kem {
   #[cfg(feature = "aigis_enc")]
   pub mod aigis_enc {
     use ::libc::c_int;
+
     pub const AIGIS_ENC_1_PUBLICKEYBYTES: usize = 672;
     pub const AIGIS_ENC_1_SECRETKEYBYTES: usize = 1568;
     pub const AIGIS_ENC_1_CIPHERTEXTBYTES: usize = 736;
@@ -26,46 +27,37 @@ pub mod kem {
     pub const AIGIS_ENC_4_SECRETKEYBYTES: usize = 3168;
     pub const AIGIS_ENC_4_CIPHERTEXTBYTES: usize = 1568;
     pub const AIGIS_ENC_4_SSBYTES: usize = 32;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_aigis_enc_1_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_1_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_1_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_2_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_2_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_2_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_3_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_3_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_3_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_4_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_4_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_enc_4_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
     }
   }
   #[cfg(feature = "kyber")]
   pub mod kyber {
     use ::libc::c_int;
+
     pub const KYBER512_PUBLICKEYBYTES: usize = 800;
     pub const KYBER512_SECRETKEYBYTES: usize = 1632;
     pub const KYBER512_CIPHERTEXTBYTES: usize = 768;
@@ -78,37 +70,31 @@ pub mod kem {
     pub const KYBER1024_SECRETKEYBYTES: usize = 3168;
     pub const KYBER1024_CIPHERTEXTBYTES: usize = 1568;
     pub const KYBER1024_SSBYTES: usize = 32;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_kyber512_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber512_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber512_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber768_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber768_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber768_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber1024_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber1024_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_kyber1024_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
     }
   }
   #[cfg(feature = "ml_kem")]
   pub mod ml_kem {
     use ::libc::c_int;
+
     pub const ML_KEM_512_PUBLICKEYBYTES: usize = 800;
     pub const ML_KEM_512_SECRETKEYBYTES: usize = 1632;
     pub const ML_KEM_512_CIPHERTEXTBYTES: usize = 768;
@@ -121,76 +107,63 @@ pub mod kem {
     pub const ML_KEM_1024_SECRETKEYBYTES: usize = 3168;
     pub const ML_KEM_1024_CIPHERTEXTBYTES: usize = 1568;
     pub const ML_KEM_1024_SSBYTES: usize = 32;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_ml_kem_512_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_512_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_512_std_enc_internal(
         ct: *mut u8,
         ss: *mut u8,
         pk: *const u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_512_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_512_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_768_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_768_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_768_std_enc_internal(
         ct: *mut u8,
         ss: *mut u8,
         pk: *const u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_768_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_768_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_1024_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_1024_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_1024_std_enc_internal(
         ct: *mut u8,
         ss: *mut u8,
         pk: *const u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_1024_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_kem_1024_std_dec(ss: *mut u8, ct: *const u8, sk: *const u8) -> c_int;
     }
   }
@@ -207,6 +180,7 @@ pub mod sig {
   #[cfg(feature = "aigis_sig")]
   pub mod aigis_sig {
     use ::libc::c_int;
+
     pub const AIGIS_SIG1_PUBLICKEYBYTES: usize = 1056;
     pub const AIGIS_SIG1_SECRETKEYBYTES: usize = 2448;
     pub const AIGIS_SIG1_SIGBYTES: usize = 1852;
@@ -216,10 +190,10 @@ pub mod sig {
     pub const AIGIS_SIG3_PUBLICKEYBYTES: usize = 1568;
     pub const AIGIS_SIG3_SECRETKEYBYTES: usize = 3888;
     pub const AIGIS_SIG3_SIGBYTES: usize = 3046;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_aigis_sig1_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig1_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -229,8 +203,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig1_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -240,11 +213,9 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig2_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig2_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -254,8 +225,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig2_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -265,11 +235,9 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig3_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig3_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -279,8 +247,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_aigis_sig3_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -295,6 +262,7 @@ pub mod sig {
   #[cfg(feature = "dilithium")]
   pub mod dilithium {
     use ::libc::c_int;
+
     pub const DILITHIUM2_PUBLICKEYBYTES: usize = 1312;
     pub const DILITHIUM2_SECRETKEYBYTES: usize = 2528;
     pub const DILITHIUM2_SIGBYTES: usize = 2420;
@@ -304,10 +272,10 @@ pub mod sig {
     pub const DILITHIUM5_PUBLICKEYBYTES: usize = 2592;
     pub const DILITHIUM5_SECRETKEYBYTES: usize = 4864;
     pub const DILITHIUM5_SIGBYTES: usize = 4595;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_dilithium2_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium2_std_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -315,8 +283,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium2_std_verify(
         sm: *const u8,
         sm_len: usize,
@@ -324,8 +291,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium2_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -333,8 +299,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium2_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -342,11 +307,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium3_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium3_std_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -354,8 +317,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium3_std_verify(
         sm: *const u8,
         sm_len: usize,
@@ -363,8 +325,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium3_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -372,8 +333,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium3_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -381,11 +341,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium5_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium5_std_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -393,8 +351,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium5_std_verify(
         sm: *const u8,
         sm_len: usize,
@@ -402,8 +359,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium5_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -411,8 +367,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_dilithium5_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -425,6 +380,7 @@ pub mod sig {
   #[cfg(feature = "ml_dsa")]
   pub mod ml_dsa {
     use ::libc::c_int;
+
     pub const ML_DSA_44_PUBLICKEYBYTES: usize = 1312;
     pub const ML_DSA_44_SECRETKEYBYTES: usize = 2560;
     pub const ML_DSA_44_SIGBYTES: usize = 2420;
@@ -434,17 +390,16 @@ pub mod sig {
     pub const ML_DSA_87_PUBLICKEYBYTES: usize = 2592;
     pub const ML_DSA_87_SECRETKEYBYTES: usize = 4896;
     pub const ML_DSA_87_SIGBYTES: usize = 4627;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_ml_dsa_44_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_signature_internal(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -453,8 +408,7 @@ pub mod sig {
         coins: *const u8,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -464,8 +418,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_verify_internal(
         sig: *const u8,
         sig_len: usize,
@@ -473,8 +426,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -484,8 +436,7 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -495,8 +446,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_44_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -506,18 +456,15 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_signature_internal(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -526,8 +473,7 @@ pub mod sig {
         coins: *const u8,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -537,8 +483,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_verify_internal(
         sig: *const u8,
         sig_len: usize,
@@ -546,8 +491,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -557,8 +501,7 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -568,8 +511,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_65_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -579,18 +521,15 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_keypair_internal(
         pk: *mut u8,
         sk: *mut u8,
         coins: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_signature_internal(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -599,8 +538,7 @@ pub mod sig {
         coins: *const u8,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_signature(
         sig: *mut u8,
         sig_len: *mut usize,
@@ -610,8 +548,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_verify_internal(
         sig: *const u8,
         sig_len: usize,
@@ -619,8 +556,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_verify(
         sig: *const u8,
         sig_len: usize,
@@ -630,8 +566,7 @@ pub mod sig {
         ctx_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -641,8 +576,7 @@ pub mod sig {
         ctx_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_ml_dsa_87_std_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -657,6 +591,7 @@ pub mod sig {
   #[cfg(feature = "slh_dsa")]
   pub mod slh_dsa {
     use ::libc::c_int;
+
     pub const SLH_DSA_SHA2_128f_PUBLICKEYBYTES: usize = 32;
     pub const SLH_DSA_SHA2_128f_SECRETKEYBYTES: usize = 64;
     pub const SLH_DSA_SHA2_128f_SIGBYTES: usize = 17088;
@@ -699,10 +634,10 @@ pub mod sig {
     pub const SLH_DSA_SM3_128s_PUBLICKEYBYTES: usize = 32;
     pub const SLH_DSA_SM3_128s_SECRETKEYBYTES: usize = 64;
     pub const SLH_DSA_SM3_128s_SIGBYTES: usize = 7856;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_slh_dsa_sha2_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -710,8 +645,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -719,8 +653,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -728,8 +661,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -737,11 +669,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -749,8 +679,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -758,8 +687,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -767,8 +695,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -776,11 +703,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -788,8 +713,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -797,8 +721,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -806,8 +729,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -815,11 +737,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -827,8 +747,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -836,8 +755,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -845,8 +763,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_192s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -854,11 +771,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -866,8 +781,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -875,8 +789,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -884,8 +797,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -893,11 +805,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -905,8 +815,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -914,8 +823,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -923,8 +831,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sha2_256s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -932,11 +839,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -944,8 +849,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -953,8 +857,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -962,8 +865,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -971,11 +873,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -983,8 +883,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -992,8 +891,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1001,8 +899,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1010,11 +907,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1022,8 +917,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1031,8 +925,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1040,8 +933,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1049,11 +941,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1061,8 +951,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1070,8 +959,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1079,8 +967,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1088,11 +975,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1100,8 +985,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1109,8 +993,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1118,8 +1001,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1127,11 +1009,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1139,8 +1019,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1148,8 +1027,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1157,8 +1035,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1166,11 +1043,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1178,8 +1053,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1187,8 +1061,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1196,8 +1069,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1205,11 +1077,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1217,8 +1087,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1226,8 +1095,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1235,8 +1103,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1249,6 +1116,7 @@ pub mod sig {
   #[cfg(feature = "sphincs_a")]
   pub mod sphincs_a {
     use ::libc::c_int;
+
     pub const SPHINCS_A_SHA2_128f_PUBLICKEYBYTES: usize = 32;
     pub const SPHINCS_A_SHA2_128f_SECRETKEYBYTES: usize = 64;
     pub const SPHINCS_A_SHA2_128f_SIGBYTES: usize = 16720;
@@ -1291,11 +1159,11 @@ pub mod sig {
     pub const SPHINCS_A_SM3_128s_PUBLICKEYBYTES: usize = 32;
     pub const SPHINCS_A_SM3_128s_SECRETKEYBYTES: usize = 64;
     pub const SPHINCS_A_SM3_128s_SIGBYTES: usize = 6880;
-    unsafe extern "C" {
+
+    extern "C" {
       pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1303,8 +1171,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1312,8 +1179,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1321,8 +1187,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1330,12 +1195,10 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1343,8 +1206,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1352,8 +1214,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1361,8 +1222,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1370,12 +1230,10 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1383,8 +1241,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1392,8 +1249,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1401,8 +1257,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1410,12 +1265,10 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1423,8 +1276,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1432,8 +1284,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1441,8 +1292,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1450,12 +1300,10 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1463,8 +1311,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1472,8 +1319,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1481,8 +1327,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1490,12 +1335,10 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8)
         -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1503,8 +1346,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1512,8 +1354,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1521,8 +1362,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1530,14 +1370,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1545,8 +1383,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1554,8 +1391,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1563,8 +1399,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1572,14 +1407,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1587,8 +1420,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1596,8 +1428,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1605,8 +1436,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1614,14 +1444,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1629,8 +1457,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1638,8 +1465,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1647,8 +1473,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1656,14 +1481,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1671,8 +1494,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1680,8 +1502,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1689,8 +1510,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1698,14 +1518,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1713,8 +1531,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1722,8 +1539,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1731,8 +1547,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1740,14 +1555,12 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_keypair(
         pk: *mut u8,
         sk: *mut u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1755,8 +1568,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1764,8 +1576,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1773,8 +1584,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1782,11 +1592,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1794,8 +1602,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1803,8 +1610,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1812,8 +1618,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
@@ -1821,11 +1626,9 @@ pub mod sig {
         sm_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_signature(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1833,8 +1636,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_verify(
         sm: *const u8,
         sm_len: usize,
@@ -1842,8 +1644,7 @@ pub mod sig {
         m_len: usize,
         pk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign(
         sm: *mut u8,
         sm_len: *mut usize,
@@ -1851,8 +1652,7 @@ pub mod sig {
         m_len: usize,
         sk: *const u8,
       ) -> c_int;
-    }
-    unsafe extern "C" {
+
       pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_open(
         m: *mut u8,
         m_len: *mut usize,
