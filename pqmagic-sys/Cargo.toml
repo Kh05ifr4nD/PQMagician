@@ -2,6 +2,7 @@
 name = "pqmagic-sys"
 version = "0.1.0"
 edition = "2021"
+description = "FFI Bindings to PQMagic"
 authors = ["Kh05ifr4nD <meandSSH0219@gmail.com>"]
 license = "Apache-2.0 OR MIT"
 links = "pqmagic_std"

@@ -2,9 +2,9 @@
 name = "ws-hakari"
 version = "0.1.0"
 edition = "2021"
-description = "workspace-hack package, managed by hakari"
+description = "Stub Crate"
 # You can choose to publish this crate: see https://docs.rs/cargo-hakari/latest/cargo_hakari/publishing.
-publish = true
+publish = false
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
 
 # The parts of the file between the BEGIN HAKARI SECTION and END HAKARI SECTION comments are managed by hakari.

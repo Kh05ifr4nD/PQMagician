@@ -19,7 +19,6 @@
         with pkgs;
         mkShell.override { stdenv = useMoldLinker llvmPkgs.stdenv; } {
           env = {
-            LIBCLANG_PATH = "${llvmPkgs.libclang.lib}/lib";
             RUST_BACKTRACE = "full";
             RUST_SRC_PATH = "${rustToolchain}/lib/rustlib/src/rust/library";
           };
@@ -52,7 +51,6 @@
                 cmake
                 llvmPkgs.clang
                 llvmPkgs.libclang
-                ninja
               ]
             );
           shellHook = '''';
