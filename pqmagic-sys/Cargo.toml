@@ -19,7 +19,7 @@ include = [
     "PQMagic/sig",
     "PQMagic/utils",
     "README.md",
-    "/src",
+    "/src/**",
 ]
 
 [build-dependencies]
