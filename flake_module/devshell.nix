@@ -44,7 +44,6 @@
               ]
               ++ [
                 just
-                mold
                 nixd
               ]
               ++ [
