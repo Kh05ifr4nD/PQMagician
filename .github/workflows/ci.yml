@@ -42,13 +42,13 @@ jobs:
         run: cargo build -v
 
       - name: Test KEM
-        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,kem
+        run: cargo test --package pqmagic-sys --lib
 
       - name: Test SIG
-        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,sig
+        run: cargo test --package pqmagic-sys --lib --features sm3
 
       - name: Test SHAKE
-        run: cargo test --package pqmagic-sys --lib --no-default-features --features vendor,kem,sig,shake
+        run: cargo test --package pqmagic-sys --lib --features sm3,shake
 
       - name: Fmt
         run: cargo fmt --all -- --check

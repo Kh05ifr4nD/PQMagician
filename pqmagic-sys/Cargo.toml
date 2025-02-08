@@ -5,8 +5,9 @@ edition = "2021"
 authors = ["Kh05ifr4nD <meandSSH0219@gmail.com>"]
 license = "Apache-2.0 OR MIT"
 links = "pqmagic_std"
+rust-version = "1.77.2"
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
-rust-version = "1.82.0"
+
 include = [
     "build.rs",
     "PQMagic/CMakeLists.txt",
@@ -23,13 +24,10 @@ include = [
 cmake = "0.1.*"
 const-str = "0.6.*"
 
-[dependencies]
-libc = { version = "0.2.*", default-features = false }
-
 [features]
 default = ["kem", "sig", "vendor"]
+
 adv = []
-shake = []
 vendor = []
 
 kem = ["aigis_enc", "kyber", "ml_kem"]
@@ -43,3 +41,6 @@ dilithium = []
 ml_dsa = []
 slh_dsa = []
 sphincs_a = []
+
+shake = []
+sm3 = []
