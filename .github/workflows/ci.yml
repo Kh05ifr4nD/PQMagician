@@ -41,13 +41,13 @@ jobs:
       - name: Build
         run: cargo build -v
 
-      - name: Test KEM
+      - name: Test
         run: cargo test --package pqmagic-sys --lib
 
-      - name: Test SIG
+      - name: Test SM3
         run: cargo test --package pqmagic-sys --lib --features sm3
 
-      - name: Test SHAKE
+      - name: Test SM3&SHAKE
         run: cargo test --package pqmagic-sys --lib --features sm3,shake
 
       - name: Fmt
