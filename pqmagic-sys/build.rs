@@ -22,14 +22,14 @@ macro_rules! alg_cnt_dis {
 
 macro_rules! feat_alg_gen {
   ($($lit:literal),*) => {
-    pub const ALG_ARR_EN: [&str; alg_cnt!($($lit)*)] = [
+    pub const EN_ALG_ARR: [&str; alg_cnt!($($lit)*)] = [
       $(
         #[cfg(feature = $lit)]
         $lit,
       )*
     ];
 
-    pub const ALG_ARR_DIS: [&str; alg_cnt_dis!($($lit)*)] = [
+    pub const DIS_ALG_CMAKE_ARR: [&str; alg_cnt_dis!($($lit)*)] = [
       $(
         #[cfg(not(feature = $lit))]
         const_str::concat!("ENABLE_", const_str::convert_ascii_case!(upper, $lit)),
@@ -52,6 +52,17 @@ feat_alg_gen!(
 );
 
 fn build_from_source() -> std::path::PathBuf {
+  let mut cfg = cmake::Config::new("PQMagic");
+  cfg.define("ENABLE_TEST", "No").define("ENABLE_BENCH", "No");
+  #[cfg(feature = "shake")]
+  cfg.define("USE_SHAKE", "Yes");
+  for alg_define in DIS_ALG_CMAKE_ARR {
+    cfg.define(alg_define, "No");
+  }
+  cfg.build_target("pqmagic_static_target").build().join("build")
+}
+
+fn main() {
   #[cfg(all(
     not(feature = "aigis_enc"),
     not(feature = "kyber"),
@@ -63,31 +74,10 @@ fn build_from_source() -> std::path::PathBuf {
     not(feature = "sphincs_a")
   ))]
   compile_error!("Please enable at least one algorithm feature.");
-  let mut cfg = cmake::Config::new("PQMagic");
   #[cfg(feature = "adv")]
   compile_error!(
     r#"Open Source Version Only Support PQMagic-std. Please disable `adv` or contact as for further high performance support."#
   );
-  cfg.define("ENABLE_TEST", "No").define("ENABLE_BENCH", "No");
-  #[cfg(feature = "shake")]
-  cfg.define("USE_SHAKE", "Yes");
-  for alg_define in ALG_ARR_DIS {
-    cfg.define(alg_define, "No");
-  }
-  cfg.build_target("pqmagic_static_target").build().join("build")
-}
-
-fn main() {
-  let build_dir = build_from_source();
-  println!("cargo:rustc-link-search=native={}", build_dir.display());
+  println!("cargo:rustc-link-search=native={}", build_from_source().display());
   println!("cargo:rustc-link-lib=static=pqmagic_std");
-  println!("cargo:rustc-link-search=native={}", build_dir.join("utils").display());
-  println!("cargo:rustc-link-lib=static=randombytes");
-  if cfg!(feature = "shake") {
-    println!("cargo:rustc-link-search=native={}", build_dir.join("hash").join("keccak").display());
-    println!("cargo:rustc-link-lib=static=fips202");
-  } else {
-    println!("cargo:rustc-link-search=native={}", build_dir.join("hash").join("sm3").display());
-    println!("cargo:rustc-link-lib=static=sm3");
-  }
 }
