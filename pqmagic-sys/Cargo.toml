@@ -21,7 +21,6 @@ const-str = "0.6.*"
 default = ["kem", "sig", "vendor"]
 
 adv = []
-vendor = []
 
 kem = ["aigis_enc", "kyber", "ml_kem"]
 aigis_enc = []
@@ -37,3 +36,9 @@ sphincs_a = []
 
 shake = []
 sm3 = []
+
+vendor = []
+
+[package.metadata.docs.rs]
+features = ["shake", "sm3"]
+targets = ["aarch64-unknown-linux-gnu", "x86_64-unknown-linux-gnu"]
