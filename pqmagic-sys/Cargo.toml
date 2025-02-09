@@ -1,26 +1,17 @@
 [package]
-name = "pqmagic-sys"
-version = "0.1.0"
-edition = "2021"
-description = "FFI Bindings to PQMagic"
 authors = ["Kh05ifr4nD <meandSSH0219@gmail.com>"]
+categories = ["cryptography", "external-ffi-bindings", "no-std"]
+description = "FFI Bindings to PQMagic"
+edition = "2021"
+exclude = ["PQMagic/figure"]
+homepage = "https://github.com/Kh05ifr4nD/PQMagician"
+keywords = ["bindings", "crypto", "ffi", "no_std", "security"]
 license = "Apache-2.0 OR MIT"
 links = "pqmagic_std"
-rust-version = "1.77.2"
+name = "pqmagic-sys"
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
-
-include = [
-    "build.rs",
-    "PQMagic/CMakeLists.txt",
-    "PQMagic/hash",
-    "PQMagic/include",
-    "PQMagic/kem",
-    "PQMagic/LICENSE",
-    "PQMagic/sig",
-    "PQMagic/utils",
-    "README.md",
-    "/src/**",
-]
+rust-version = "1.77.2"
+version = "0.1.0"
 
 [build-dependencies]
 cmake = "0.1.*"
