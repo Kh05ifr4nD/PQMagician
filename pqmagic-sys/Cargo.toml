@@ -11,7 +11,7 @@ links = "pqmagic_std"
 name = "pqmagic-sys"
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
 rust-version = "1.77.2"
-version = "0.1.1"
+version = "0.1.2"
 
 [build-dependencies]
 cmake = "0.1.*"
@@ -41,4 +41,3 @@ vendor = []
 
 [package.metadata.docs.rs]
 features = ["shake", "sm3"]
-targets = ["aarch64-unknown-linux-gnu", "x86_64-unknown-linux-gnu"]
