@@ -1,9 +1,9 @@
 {
-    "recommendations": [
-        "fill-labs.dependi",
-        "jnoortheen.nix-ide",
-        "mkhl.direnv",
-        "rust-lang.rust-analyzer",
-        "tamasfe.even-better-toml",
-    ]
+	"recommendations": [
+		"fill-labs.dependi",
+		"jnoortheen.nix-ide",
+		"mkhl.direnv",
+		"rust-lang.rust-analyzer",
+		"tamasfe.even-better-toml"
+	]
 }

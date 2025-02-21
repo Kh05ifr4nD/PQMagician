@@ -29,11 +29,11 @@ jobs:
       - name: Rust
         run: |
           rustup set auto-self-update disable
-          rustup toolchain install ${{ matrix.rust }} --profile minimal --component rustfmt --component clippy
-          rustup default ${{ matrix.rust }}
-          echo CARGO_TERM_COLOR=always >> $GITHUB_ENV
-          echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV
-          echo RUST_BACKTRACE=1 >> $GITHUB_ENV
+          rustup toolchain install "${{ matrix.rust }}" --profile minimal --component rustfmt --component clippy
+          rustup default "${{ matrix.rust }}"
+          echo CARGO_TERM_COLOR=always >> "$GITHUB_ENV"
+          echo CARGO_INCREMENTAL=0 >> "$GITHUB_ENV"
+          echo RUST_BACKTRACE=1 >> "$GITHUB_ENV"
         shell: bash
 
       - uses: Swatinem/rust-cache@v2

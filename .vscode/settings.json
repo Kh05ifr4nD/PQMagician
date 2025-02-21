@@ -1,6 +1,3 @@
 {
-  "rust-analyzer.files.excludeDirs": [
-    ".direnv",
-    "flake_module",
-  ],
+	"rust-analyzer.files.excludeDirs": [".direnv", "flake_module"]
 }
