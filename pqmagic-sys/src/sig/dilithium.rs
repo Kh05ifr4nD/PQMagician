@@ -10,7 +10,7 @@ pub const DILITHIUM5_PUBLICKEYBYTES: usize = 2592;
 pub const DILITHIUM5_SECRETKEYBYTES: usize = 4864;
 pub const DILITHIUM5_SIGBYTES: usize = 4595;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_dilithium2_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
 
   pub fn pqmagic_dilithium2_std_signature(

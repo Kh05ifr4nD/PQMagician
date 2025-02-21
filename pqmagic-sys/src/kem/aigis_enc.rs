@@ -17,7 +17,7 @@ pub const AIGIS_ENC_4_SECRETKEYBYTES: usize = 3168;
 pub const AIGIS_ENC_4_CIPHERTEXTBYTES: usize = 1568;
 pub const AIGIS_ENC_4_SSBYTES: usize = 32;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_aigis_enc_1_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
 
   pub fn pqmagic_aigis_enc_1_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;

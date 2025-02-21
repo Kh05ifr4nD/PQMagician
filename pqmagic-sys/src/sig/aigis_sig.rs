@@ -10,7 +10,7 @@ pub const AIGIS_SIG3_PUBLICKEYBYTES: usize = 1568;
 pub const AIGIS_SIG3_SECRETKEYBYTES: usize = 3888;
 pub const AIGIS_SIG3_SIGBYTES: usize = 3046;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_aigis_sig1_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
 
   pub fn pqmagic_aigis_sig1_std_signature(

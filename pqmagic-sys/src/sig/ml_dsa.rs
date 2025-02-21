@@ -10,7 +10,7 @@ pub const ML_DSA_87_PUBLICKEYBYTES: usize = 2592;
 pub const ML_DSA_87_SECRETKEYBYTES: usize = 4896;
 pub const ML_DSA_87_SIGBYTES: usize = 4627;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_ml_dsa_44_std_keypair_internal(
     pk: *mut u8,
     sk: *mut u8,

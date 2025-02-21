@@ -43,6 +43,7 @@
                 rustToolchain
               ]
               ++ [
+                gitui
                 just
                 nixd
               ]

@@ -4,7 +4,7 @@
 
 #![no_std]
 pub mod util {
-  extern "C" {
+  unsafe extern "C" {
     pub fn randombytes(out: *mut u8, out_len: usize);
   }
 }

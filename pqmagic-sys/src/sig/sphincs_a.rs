@@ -67,7 +67,7 @@ pub const SPHINCS_A_SM3_128s_SECRETKEYBYTES: usize = 64;
 #[cfg(feature = "sm3")]
 pub const SPHINCS_A_SM3_128s_SIGBYTES: usize = 6880;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
 
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_signature(

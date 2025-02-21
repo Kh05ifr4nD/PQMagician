@@ -2,7 +2,7 @@
 authors = ["Kh05ifr4nD <meandSSH0219@gmail.com>"]
 categories = ["cryptography", "external-ffi-bindings", "no-std"]
 description = "FFI Bindings to PQMagic"
-edition = "2021"
+edition = "2024"
 exclude = ["PQMagic/figure"]
 homepage = "https://github.com/Kh05ifr4nD/PQMagician"
 keywords = ["bindings", "crypto", "ffi", "no_std", "security"]
@@ -10,7 +10,7 @@ license = "Apache-2.0 OR MIT"
 links = "pqmagic_std"
 name = "pqmagic-sys"
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
-rust-version = "1.77.2"
+rust-version = "1.85.0"
 version = "0.1.2"
 
 [build-dependencies]

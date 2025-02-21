@@ -13,7 +13,7 @@ pub const KYBER1024_SECRETKEYBYTES: usize = 3168;
 pub const KYBER1024_CIPHERTEXTBYTES: usize = 1568;
 pub const KYBER1024_SSBYTES: usize = 32;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_kyber512_std_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
 
   pub fn pqmagic_kyber512_std_enc(ct: *mut u8, ss: *mut u8, pk: *const u8) -> c_int;

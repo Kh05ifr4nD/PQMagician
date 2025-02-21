@@ -13,7 +13,7 @@ pub const ML_KEM_1024_SECRETKEYBYTES: usize = 3168;
 pub const ML_KEM_1024_CIPHERTEXTBYTES: usize = 1568;
 pub const ML_KEM_1024_SSBYTES: usize = 32;
 
-extern "C" {
+unsafe extern "C" {
   pub fn pqmagic_ml_kem_512_std_keypair_internal(pk: *mut u8, sk: *mut u8, coins: *mut u8)
     -> c_int;
 
