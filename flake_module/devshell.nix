@@ -19,11 +19,13 @@
         with pkgs;
         mkShell.override { stdenv = useMoldLinker llvmPkgs.stdenv; } {
           env = {
+            LIBCLANG_PATH = "${llvmPkgs.libclang.lib}/lib";
             RUST_BACKTRACE = "full";
             RUST_SRC_PATH = "${rustToolchain}/lib/rustlib/src/rust/library";
           };
           inputsFrom = with config; [
             flake-root.devShell
+            pre-commit.devShell
             treefmt.build.devShell
           ];
           name = "PQMagician";
@@ -40,6 +42,7 @@
                 cargo-nextest
                 cargo-release
                 cargo-sort
+                rust-bindgen
                 rustToolchain
               ]
               ++ [

@@ -1,5 +1,3 @@
-use ::core::ffi::c_int;
-
 pub const SPHINCS_A_SHA2_128f_PUBLICKEYBYTES: usize = 32;
 pub const SPHINCS_A_SHA2_128f_SECRETKEYBYTES: usize = 64;
 pub const SPHINCS_A_SHA2_128f_SIGBYTES: usize = 16720;
@@ -68,519 +66,630 @@ pub const SPHINCS_A_SM3_128s_SECRETKEYBYTES: usize = 64;
 pub const SPHINCS_A_SM3_128s_SIGBYTES: usize = 6880;
 
 unsafe extern "C" {
-  pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+  pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_128s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_192s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sha2_256s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_128s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_192s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
-  pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "shake")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "shake")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "shake")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_shake_256s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
-  pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128f_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
-  pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_keypair(pk: *mut u8, sk: *mut u8) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
+  pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_keypair(
+    pk: *mut ::core::ffi::c_uchar,
+    sk: *mut ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_signature(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_verify(
-    sm: *const u8,
-    sm_len: usize,
-    m: *const u8,
-    m_len: usize,
-    pk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign(
-    sm: *mut u8,
-    sm_len: *mut usize,
-    m: *const u8,
-    m_len: usize,
-    sk: *const u8,
-  ) -> c_int;
-
-  #[cfg(feature = "sm3")]
+    sm: *mut ::core::ffi::c_uchar,
+    smlen: *mut usize,
+    m: *const ::core::ffi::c_uchar,
+    mlen: usize,
+    sk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
+}
+#[cfg(feature = "sm3")]
+unsafe extern "C" {
   pub fn pqmagic_sphincs_a_sm3_128s_simple_std_sign_open(
-    m: *mut u8,
-    m_len: *mut usize,
-    sm: *const u8,
-    sm_len: usize,
-    pk: *const u8,
-  ) -> c_int;
+    m: *mut ::core::ffi::c_uchar,
+    mlen: *mut usize,
+    sm: *const ::core::ffi::c_uchar,
+    smlen: usize,
+    pk: *const ::core::ffi::c_uchar,
+  ) -> ::core::ffi::c_int;
 }

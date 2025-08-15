@@ -5,6 +5,7 @@
       url = "github:hercules-ci/flake-parts";
     };
     flake-root.url = "github:srid/flake-root";
+    git-hooks-nix.url = "github:cachix/pre-commit-hooks.nix";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
     systems.url = "github:nix-systems/default";
@@ -17,6 +18,7 @@
         with inputs;
         [
           flake-root.flakeModule
+          git-hooks-nix.flakeModule
           treefmt-nix.flakeModule
         ]
         ++ (with builtins; map (f: ./flake_module/${f}) (attrNames (readDir ./flake_module)));
