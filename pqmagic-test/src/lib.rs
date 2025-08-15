@@ -204,7 +204,7 @@ fn test_aigis_sig_1() {
     assert_eq!(
       pqmagic_aigis_sig1_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -242,7 +242,7 @@ fn test_aigis_sig_2() {
     assert_eq!(
       pqmagic_aigis_sig2_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -280,7 +280,7 @@ fn test_aigis_sig_3() {
     assert_eq!(
       pqmagic_aigis_sig3_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -317,7 +317,7 @@ fn test_dilithium2() {
     assert_eq!(
       pqmagic_dilithium2_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -350,7 +350,7 @@ fn test_dilithium3() {
     assert_eq!(
       pqmagic_dilithium3_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -383,7 +383,7 @@ fn test_dilithium5() {
     assert_eq!(
       pqmagic_dilithium5_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -417,7 +417,7 @@ fn test_ml_dsa_44() {
     assert_eq!(
       pqmagic_ml_dsa_44_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -455,7 +455,7 @@ fn test_ml_dsa_65() {
     assert_eq!(
       pqmagic_ml_dsa_65_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -493,7 +493,7 @@ fn test_ml_dsa_87() {
     assert_eq!(
       pqmagic_ml_dsa_87_std_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         ctx.as_ptr(),
@@ -534,7 +534,7 @@ fn test_sphincs_a_sha2_128f() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -570,7 +570,7 @@ fn test_sphincs_a_sha2_128s() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -607,7 +607,7 @@ fn test_sphincs_a_sha2_192f() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_192f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -643,7 +643,7 @@ fn test_sphincs_a_sha2_192s() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_192s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -680,7 +680,7 @@ fn test_sphincs_a_sha2_256f() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_256f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -717,7 +717,7 @@ fn test_sphincs_a_sha2_256s() {
     assert_eq!(
       pqmagic_sphincs_a_sha2_256s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -754,7 +754,7 @@ fn test_sphincs_a_sm3_128f() {
     assert_eq!(
       pqmagic_sphincs_a_sm3_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -790,7 +790,7 @@ fn test_sphincs_a_sm3_128s() {
     assert_eq!(
       pqmagic_sphincs_a_sm3_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -827,7 +827,7 @@ fn test_sphincs_a_shake_128f() {
     assert_eq!(
       pqmagic_sphincs_a_shake_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -863,7 +863,7 @@ fn test_sphincs_a_shake_128s() {
     assert_eq!(
       pqmagic_sphincs_a_shake_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -900,7 +900,7 @@ fn test_sphincs_a_shake_192f() {
     assert_eq!(
       pqmagic_sphincs_a_shake_192f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -936,7 +936,7 @@ fn test_sphincs_a_shake_192s() {
     assert_eq!(
       pqmagic_sphincs_a_shake_192s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -973,7 +973,7 @@ fn test_sphincs_a_shake_256f() {
     assert_eq!(
       pqmagic_sphincs_a_shake_256f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1010,7 +1010,7 @@ fn test_sphincs_a_shake_256s() {
     assert_eq!(
       pqmagic_sphincs_a_shake_256s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1047,7 +1047,7 @@ fn test_slh_dsa_sha2_128f() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1083,7 +1083,7 @@ fn test_slh_dsa_sha2_128s() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1120,7 +1120,7 @@ fn test_slh_dsa_sha2_192f() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_192f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1156,7 +1156,7 @@ fn test_slh_dsa_sha2_192s() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_192s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1193,7 +1193,7 @@ fn test_slh_dsa_sha2_256f() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_256f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1230,7 +1230,7 @@ fn test_slh_dsa_sha2_256s() {
     assert_eq!(
       pqmagic_slh_dsa_sha2_256s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1267,7 +1267,7 @@ fn test_slh_dsa_sm3_128f() {
     assert_eq!(
       pqmagic_slh_dsa_sm3_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1303,7 +1303,7 @@ fn test_slh_dsa_sm3_128s() {
     assert_eq!(
       pqmagic_slh_dsa_sm3_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1340,7 +1340,7 @@ fn test_slh_dsa_shake_128f() {
     assert_eq!(
       pqmagic_slh_dsa_shake_128f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1376,7 +1376,7 @@ fn test_slh_dsa_shake_128s() {
     assert_eq!(
       pqmagic_slh_dsa_shake_128s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1413,7 +1413,7 @@ fn test_slh_dsa_shake_192f() {
     assert_eq!(
       pqmagic_slh_dsa_shake_192f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1449,7 +1449,7 @@ fn test_slh_dsa_shake_192s() {
     assert_eq!(
       pqmagic_slh_dsa_shake_192s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1486,7 +1486,7 @@ fn test_slh_dsa_shake_256f() {
     assert_eq!(
       pqmagic_slh_dsa_shake_256f_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
@@ -1523,7 +1523,7 @@ fn test_slh_dsa_shake_256s() {
     assert_eq!(
       pqmagic_slh_dsa_shake_256s_simple_std_sign_signature(
         sig.as_mut_ptr(),
-        &mut sig_len,
+        &raw mut sig_len,
         message.as_ptr(),
         message.len(),
         sk.as_ptr()
