@@ -22,7 +22,7 @@ jobs:
         with:
           submodules: true
 
-      - name: PQMagic Submod Upd
+      - name: PQMagic Submodule Update
         if: matrix.upd-pqmagic
         run: git submodule update --remote
 

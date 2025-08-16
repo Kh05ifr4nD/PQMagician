@@ -9,3 +9,5 @@ desktop.ini
 /.direnv/
 /result
 /.pre-commit-config.yaml
+
+pqmagic_api.rs
