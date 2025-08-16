@@ -39,5 +39,8 @@ sm3 = []
 
 vendor = []
 
+[dependencies]
+ws-hakari = { version = "0.1", path = "../ws-hakari" }
+
 [package.metadata.docs.rs]
 features = ["shake", "sm3"]
