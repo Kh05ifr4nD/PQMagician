@@ -16,53 +16,29 @@ pub const SLH_DSA_SHA2_256f_SIGBYTES: usize = 49856;
 pub const SLH_DSA_SHA2_256s_PUBLICKEYBYTES: usize = 64;
 pub const SLH_DSA_SHA2_256s_SECRETKEYBYTES: usize = 128;
 pub const SLH_DSA_SHA2_256s_SIGBYTES: usize = 29792;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128f_PUBLICKEYBYTES: usize = 32;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128f_SECRETKEYBYTES: usize = 64;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128f_SIGBYTES: usize = 17088;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128s_PUBLICKEYBYTES: usize = 32;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128s_SECRETKEYBYTES: usize = 64;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_128s_SIGBYTES: usize = 7856;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192f_PUBLICKEYBYTES: usize = 48;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192f_SECRETKEYBYTES: usize = 96;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192f_SIGBYTES: usize = 35664;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192s_PUBLICKEYBYTES: usize = 48;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192s_SECRETKEYBYTES: usize = 96;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_192s_SIGBYTES: usize = 16224;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256f_PUBLICKEYBYTES: usize = 64;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256f_SECRETKEYBYTES: usize = 128;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256f_SIGBYTES: usize = 49856;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256s_PUBLICKEYBYTES: usize = 64;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256s_SECRETKEYBYTES: usize = 128;
-#[cfg(feature = "shake")]
 pub const SLH_DSA_SHAKE_256s_SIGBYTES: usize = 29792;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128f_PUBLICKEYBYTES: usize = 32;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128f_SECRETKEYBYTES: usize = 64;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128f_SIGBYTES: usize = 17088;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128s_PUBLICKEYBYTES: usize = 32;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128s_SECRETKEYBYTES: usize = 64;
-#[cfg(feature = "sm3")]
 pub const SLH_DSA_SM3_128s_SIGBYTES: usize = 7856;
 
 unsafe extern "C" {
@@ -317,14 +293,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -334,7 +308,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -344,7 +317,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -354,7 +326,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128f_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -364,14 +335,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -381,7 +350,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -391,7 +359,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -401,7 +368,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_128s_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -411,14 +377,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -428,7 +392,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -438,7 +401,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -448,7 +410,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192f_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -458,14 +419,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -475,7 +434,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -485,7 +443,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -495,7 +452,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_192s_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -505,14 +461,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -522,7 +476,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -532,7 +485,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -542,7 +494,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256f_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -552,14 +503,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -569,7 +518,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -579,7 +527,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -589,7 +536,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "shake")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_shake_256s_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -599,14 +545,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -616,7 +560,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -626,7 +569,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -636,7 +578,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128f_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,
@@ -646,14 +587,12 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_keypair(
     pk: *mut ::core::ffi::c_uchar,
     sk: *mut ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_signature(
     sm: *mut ::core::ffi::c_uchar,
@@ -663,7 +602,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_verify(
     sm: *const ::core::ffi::c_uchar,
@@ -673,7 +611,6 @@ unsafe extern "C" {
     pk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign(
     sm: *mut ::core::ffi::c_uchar,
@@ -683,7 +620,6 @@ unsafe extern "C" {
     sk: *const ::core::ffi::c_uchar,
   ) -> ::core::ffi::c_int;
 }
-#[cfg(feature = "sm3")]
 unsafe extern "C" {
   pub fn pqmagic_slh_dsa_sm3_128s_simple_std_sign_open(
     m: *mut ::core::ffi::c_uchar,

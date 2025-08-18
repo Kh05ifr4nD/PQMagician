@@ -9,13 +9,13 @@ bd:
     cargo build --workspace --all-targets
 
 bd-all:
-    cargo build --workspace --all-targets --features=shake,sm3
+    cargo build --workspace --all-targets
 
 test:
     cargo test --workspace
 
 lint:
-    cargo clippy --workspace --all-targets --features=shake,sm3 --profile test -- -D warnings
+    cargo clippy --workspace --all-targets --profile test -- -D warnings
 
 fmt:
     cargo fmt --all
@@ -31,10 +31,10 @@ updt:
     git submodule update --remote --recursive
 
 doc:
-    cargo doc --workspace --features=shake,sm3 --no-deps
+    cargo doc --workspace --no-deps
 
 doc-open:
-    cargo doc --workspace --features=shake,sm3 --no-deps --open
+    cargo doc --workspace --no-deps --open
 
 pre-cmt: fmt lint test
 

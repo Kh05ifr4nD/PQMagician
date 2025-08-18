@@ -53,24 +53,21 @@ feat_alg_gen!(
 
 fn build_from_source() -> std::path::PathBuf {
   let mut cfg = cmake::Config::new("PQMagic");
-  cfg.define("ENABLE_TEST", "No").define("ENABLE_BENCH", "No");
+  cfg.define("ENABLE_TEST", "OFF").define("ENABLE_BENCH", "OFF");
   for alg_define in DIS_ALG_CMAKE_ARR {
-    cfg.define(alg_define, "No");
+    cfg.define(alg_define, "OFF");
   }
-  #[cfg(feature = "shake")]
-  cfg.define("USE_SHAKE", "Yes");
-  #[cfg(feature = "sm3")]
-  cfg.define("USE_SM3", "Yes");
+  if cfg!(feature = "shake") {
+    cfg.define("USE_SHAKE", "ON");
+  }
   cfg.build_target("pqmagic_static_target").build().join("build")
 }
 
 fn main() {
   #[cfg(feature = "adv")]
   compile_error!(
-    "Open Source Version Only Support PQMagic-std. Please disable `adv` or contact as for further high performance support."
+    "Open source version only support PQMagic-std. Please disable `adv` or contact the author for further high performance support."
   );
-  #[cfg(not(feature = "vendor"))]
-  compile_error!("Only support `vendor` mode.");
   #[cfg(all(
     not(feature = "aigis_enc"),
     not(feature = "kyber"),

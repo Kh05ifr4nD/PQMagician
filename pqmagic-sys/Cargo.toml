@@ -18,29 +18,23 @@ cmake = "0.1.*"
 const-str = "0.6.*"
 
 [features]
-default = ["kem", "sig", "vendor"]
-
+default = ["kem", "sig"]
+# Commercial, not supported in open source
 adv = []
-
-kem = ["aigis_enc", "kyber", "ml_kem"]
+# Key Encapsulation Mechanism
 aigis_enc = []
 kyber = []
 ml_kem = []
-
-sig = ["aigis_sig", "dilithium", "ml_dsa", "slh_dsa", "sphincs_a"]
+kem = ["aigis_enc", "kyber", "ml_kem"]
+# Digital Signature
 aigis_sig = []
 dilithium = []
 ml_dsa = []
 slh_dsa = []
 sphincs_a = []
-
+sig = ["aigis_sig", "dilithium", "ml_dsa", "slh_dsa", "sphincs_a"]
+#  Default use sm3 and this hash selector do not work for SLH_DSA and SPHINCS_A
 shake = []
-sm3 = []
-
-vendor = []
 
 [dependencies]
 ws-hakari = { version = "0.1", path = "../ws-hakari" }
-
-[package.metadata.docs.rs]
-features = ["shake", "sm3"]
