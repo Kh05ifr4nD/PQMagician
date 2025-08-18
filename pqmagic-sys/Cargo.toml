@@ -11,7 +11,7 @@ links = "pqmagic_std"
 name = "pqmagic-sys"
 repository = "https://github.com/Kh05ifr4nD/PQMagician"
 rust-version = "1.85.0"
-version = "0.2.0"
+version = "0.2.1"
 
 [build-dependencies]
 cmake = "0.1.*"
